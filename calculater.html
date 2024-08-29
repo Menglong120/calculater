@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    h1{
+  text-align: center;
+  margin-top: 0.67em;
+  margin-bottom: 0.67em;
+}
+*{
+  margin: 0;
+  padding: 0;
+}
+.container{
+  margin: auto;
+  width: 25%;
+  padding: 10px;
+  border: 1px solid #f2f2f2;
+  -webkit-box-shadow: 1px 1px 4px 0px rgba(176,176,176,1);
+     -moz-box-shadow: 1px 1px 4px 0px rgba(176,176,176,1);
+          box-shadow: 1px 1px 4px 0px rgba(176,176,176,1);
+  background-color: #fff;
+  height: 380px;
+  background-color: #F8F8F8;
+}
+.header{
+  background-color: #81C784;
+  padding: 10px;
+  color: #fff;
+  text-align: center;
+}
+#result{
+  font-size: 24px;
+  padding: 24px 5px;
+  font-weight: 700;
+  text-align: right;
+  width: 96%;
+  height: 30px;
+  border: none;
+  background-color: #F8F8F8;
+}
+.first-row,
+.second-row,
+.third-row,
+.fourth-row,
+.conflict
+{
+  display: inline-block;
+  width: 100%;
+  cursor: pointer;
+}
+.global{
+ padding: 15px;
+ font-weight: bold;
+ font-size: 16px;
+ border: none;
+ border-radius: 3px;
+ background-color: #F2F2F2;
+ float: left;
+ width: 23.5%;
+ margin: 0 2px;
+}
+.conflict .left,
+.conflict .right{
+  float: left;
+  position: relative;
+  
+}
+.left{
+  width: 74%;
+  cursor: pointer;
+}
+.right{
+  width: 24%;
+  cursor: pointer;
+}
+.big{
+  padding: 15px;
+  font-weight: bold;
+  font-size: 16px;
+  border: none;
+  border-radius: 3px;
+  background-color: #F2F2F2;
+  float: left;
+  width: 64.5%;
+  margin: 0 2px;
+  cursor: pointer;
+}
+.small{
+  padding: 15px;
+  font-weight: bold;
+  font-size: 16px;
+  border: none;
+  border-radius: 3px;
+  background-color: #F2F2F2;
+  float: left;
+  width: 31.5%;
+  margin: 0 2px;
+  cursor: pointer;
+}
+.plus{
+  height: 105px;
+  width: 100%;
+  cursor: pointer;
+}
+.green{
+  background-color: #81C784;
+}
+.red{
+  background-color: #F50258
+}
+.grey{
+  background-color: #F2F2F2;
+}
+.white-text{
+  color: #fff;
+}
+.top-margin{
+  margin-top: 4px;
+}
+input{
+  cursor: pointer;
+}
+
+</style>
+<body>
+    <h1>Calculator Design Using HTML Layout</h1>
+    <div class="container">
+      <div class="header">Calculator</div>
+      <div type="text"  id="result"> 
+
+      </div>
+      <div class="second-row">
+        <input onclick="Calculator(7)" type="button" name="" value="7" class="global">
+        <input onclick="Calculator(8)" type="button" name="" value="8" class="global">
+        <input onclick="Calculator(9)" type="button" name="" value="9" class="global">
+        <input onclick="Calculator('/')" type="button" name="" value="/" class="global">
+      </div>
+      <div class="third-row">
+        <input onclick="Calculator(4)" type="button" name="" value="4" class="global">
+        <input onclick="Calculator(5)" type="button" name="" value="5" class="global">
+        <input onclick="Calculator(6)" type="button" name="" value="6" class="global">
+        <input onclick="Calculator('*')" type="button" name="" value="X" class="global">
+      </div>
+      <div class="fourth-row">
+        <input onclick="Calculator(1)" type="button" name="" value="1" class="global">
+        <input onclick="Calculator(2)" type="button" name="" value="2" class="global">
+        <input onclick="Calculator(3)" type="button" name="" value="3" class="global">
+        <input onclick="Calculator('-')" type="button" name="" value="-" class="global">
+      </div>
+      <div class="conflict">
+        <div class="left">
+          <input onclick="Calculator(0)" type="button" name="" value="0" class=" big">
+          <input onclick="Calculator('.')" type="button" name="" value="." class=" small">
+          <input onclick="clearcal()" type="button" name="" value="Del" class=" red small white-text top-margin">
+          <input onclick="total()"  type="button" name="" value="=" class=" green white-text big top-margin">
+        </div>
+        <div class="right">
+          <input onclick="Calculator('+')" type="button" name="" value="+" class="global grey plus">
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function Calculator(x){
+        document.getElementById('result').innerHTML += x;
+      }
+      function total(){
+        let totalcalculator = document.getElementById('result').innerHTML;
+        document.getElementById('result').innerHTML = eval(totalcalculator);
+      }
+      function clearcal(){
+        document.getElementById('result').innerHTML = ' ';
+      }
+    </script>
+</body>
+</html>
